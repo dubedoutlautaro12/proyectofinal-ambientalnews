@@ -5,11 +5,11 @@ from django.views.generic import DetailView, ListView, CreateView, UpdateView, D
 from ambientalnews.models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from ambientalnews.forms import UsuarioForm
 from ambientalnews.models import Avatar, Post, Mensaje
 from django.contrib.auth.admin import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def index(request):
@@ -22,7 +22,7 @@ class PostDetalle(DetailView):
 class PostListar(ListView):
     model = Post  
 
-class PostCrear(LoginRequiredMixin, CreateView):
+class PostCrear(LoginRequiredMixin,CreateView):
     model = Post
     success_url = reverse_lazy("inicio")
     fields = '__all__'
@@ -51,13 +51,13 @@ class UserLogout(LogoutView):
 class AvatarActualizar(UpdateView):
     model = Avatar
     fields = ['imagen']
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('inicio')
 
 
 class UserActualizar(UpdateView):
     model = User
     fields = ['first_name', 'last_name', 'email']
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('inicio')
 
 
 class MensajeDetalle(LoginRequiredMixin, DetailView):
@@ -73,4 +73,4 @@ class MensajeCrear(CreateView):
 
 class MensajeBorrar(LoginRequiredMixin, DeleteView):
     model = Mensaje
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("listar-mensaje")

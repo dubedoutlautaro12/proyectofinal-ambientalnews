@@ -1,8 +1,11 @@
 {% extends 'ambientalnews/base.html' %}
 
 {% block contenido %}
+<div> 
+    <h1> MENSAJES </h1>
+</div>
     <div>
         {{object.texto}}
     </div>
-    
+    <a href="{% url 'listar-mensaje' %}">Atras</a>
 {% endblock %}

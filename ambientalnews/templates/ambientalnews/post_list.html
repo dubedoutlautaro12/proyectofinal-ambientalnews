@@ -6,8 +6,11 @@
     {% if user.avatar.imagen %}
         <a href="{% url 'avatar-actualizar' user.avatar.id %}">Actualizar Avatar</a>
     {% endif %}
-    <a href="{% url 'post-actualizar' user.id %}">Actualizar Profile</a>
+    <a href="{% url 'user-actualizar' user.id %}">Actualizar Perfil</a>
+    {% if user.is_superuser %}
     <a href="{% url 'listar-mensaje' %}">Mensajes</a>
+    {% endif %}
+
 {% endif %}
 <ul>
 {% for post in object_list %}

@@ -1,11 +1,14 @@
 {% extends 'ambientalnews/base.html' %}
-
 {% block contenido %}
+<div> 
+    <h1> MENSAJES </h1>
+</div>
 <ul>
 {% for mensaje in object_list %}
     <li>
         {{mensaje.enviado_el}} - - {{mensaje.email}} -- {{mensaje.nombre}} 
         <a href="{% url 'detalle-mensaje' mensaje.id %}">Ver</a>
+        <a href="{% url 'borrar-mensaje' mensaje.id %}">Borrar</a>
     </li>
 {% endfor %}
 </ul>

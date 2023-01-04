@@ -24,7 +24,7 @@ from django.urls import path
 from ambientalnews.views import(index, PostListar, PostCrear, 
                              PostBorrar, PostActualizar, PostDetalle,
                              UserSignUp, UserLogin, UserLogout, AvatarActualizar, UserActualizar,
-                             MensajeCrear, MensajeListar, MensajeDetalle)
+                             MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,6 +43,7 @@ urlpatterns = [
     path('ambientalnews/mensajes/crear/', MensajeCrear.as_view(), name='crear-mensaje'),
     path('ambientalnews/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name='detalle-mensaje'),
     path('ambientalnews/mensajes/listar/', MensajeListar.as_view(), name='listar-mensaje'),
+    path('ambientalnews/<int:pk>/borrar/', MensajeBorrar.as_view(), name= 'borrar-mensaje')
 ]
 
 

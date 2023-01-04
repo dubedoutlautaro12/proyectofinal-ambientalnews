@@ -1,5 +1,8 @@
 {% extends 'ambientalnews/base.html' %}
 {% block contenido %}
+<div> 
+    <h1> MENSAJES </h1>
+</div>
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}

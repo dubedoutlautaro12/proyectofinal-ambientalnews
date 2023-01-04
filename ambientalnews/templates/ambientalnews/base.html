@@ -16,27 +16,30 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'listar' %}">
+                <a class="navbar-brand" href="{% url 'inicio' %}">
                     {%if user.is_authenticated  and  user.avatar.imagen %}
                     <img src="{{user.avatar.imagen.url}}" height="64">
                       Hola, {{user.first_name}} |
+                        {% else %}
+                        Hola, {{user.first_name}} 
+                
                     {% endif %} 
-                    Start Bootstrap
+                    Ambiental News
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'post-crear' %}">Crear Post</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'crear-mensaje' %}">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
                         
-                        <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Registrarse</a></li>
+                        
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'listar' %}">Admin Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'listar' %}">Administrador</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Salir</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Registrarse</a></li>
                         {% endif %}
                         
                     </ul>
@@ -47,8 +50,8 @@
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <h1 class="fw-bolder">Bienvenido Notifan!</h1>
+                    <p class="lead mb-0">El sitio web enfocado al maluso de nuestra</p>
                 </div>
             </div>
         </header>
