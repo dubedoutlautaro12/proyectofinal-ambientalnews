@@ -1,11 +1,10 @@
 from django.shortcuts import render
 
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView, View
 from ambientalnews.models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.decorators import login_required
 from ambientalnews.forms import UsuarioForm
 from ambientalnews.models import Avatar, Post, Mensaje
 from django.contrib.auth.admin import User
@@ -16,7 +15,8 @@ def index(request):
     posts = Post.objects.order_by('-publicado_el').all()
     return render(request, "ambientalnews/index.html", {"posts": posts})
 
-class PostDetalle(DetailView):
+
+class PostDetalle(LoginRequiredMixin, DetailView):
     model = Post
 
 class PostListar(ListView):
@@ -74,3 +74,7 @@ class MensajeCrear(CreateView):
 class MensajeBorrar(LoginRequiredMixin, DeleteView):
     model = Mensaje
     success_url = reverse_lazy("listar-mensaje")
+
+
+def Aboutme(request):
+    return render (request, 'ambientalnews/about_me.html')

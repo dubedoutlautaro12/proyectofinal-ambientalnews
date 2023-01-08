@@ -7,4 +7,8 @@
         {{ form.as_p }}
         <input type="submit" value="Registrarme">
     </form>
+    <div>
+        Si ya tenes tu cuenta:
+        <button><a href="{% url 'login' %}">Ingresar</a></button>
+    </div>
 {% endblock %}

@@ -2,13 +2,13 @@
 
 {% block contenido %}
 {% if user.is_authenticated %}
-    <a href="{% url 'post-crear' %}">Crear Post</a>
+    <button><a href="{% url 'post-crear' %}">Crear Post</a></button>
     {% if user.avatar.imagen %}
-        <a href="{% url 'avatar-actualizar' user.avatar.id %}">Actualizar Avatar</a>
+    <button><a href="{% url 'avatar-actualizar' user.avatar.id %}">Actualizar Avatar</a></button> 
     {% endif %}
-    <a href="{% url 'user-actualizar' user.id %}">Actualizar Perfil</a>
+    <button><a href="{% url 'user-actualizar' user.id %}">Actualizar Perfil</a></button>
     {% if user.is_superuser %}
-    <a href="{% url 'listar-mensaje' %}">Mensajes</a>
+    <button><a href="{% url 'listar-mensaje' %}">Mensajes</a></button>
     {% endif %}
 
 {% endif %}

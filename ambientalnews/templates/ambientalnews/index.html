@@ -9,14 +9,14 @@
                 <!-- Featured blog post-->
                 <div class="card mb-4">
                     {% if posts.0 %}
-                    <a href="#!"><img class="card-img-top" src="{{posts.0.imagen.url}}" alt="..." /></a>
-                    <div class="card-body">
-                        <div class="small text-muted">{{posts.0.publicado_el}}</div>
-                        <h2 class="card-title">{{posts.0.titulo}}</h2>
-                        <p class="card-text">{{posts.0.sub_titulo}}</p>
-                        <a class="btn btn-primary" href="{% url 'post-detalle' posts.0.id %}">Leer Mas →</a>
-                    </div>
-                    {% endif %}
+                            <a href="#!"><img class="card-img-top" src="{{posts.0.imagen.url}}" alt="..." /></a>
+                            <div class="card-body">
+                                <div class="small text-muted">{{posts.0.publicado_el}}</div>
+                                <h2 class="card-title">{{posts.0.titulo}}</h2>
+                                <p class="card-text">{{posts.0.sub_titulo}}</p>
+                                <a class="btn btn-primary" href="{% url 'post-detalle' posts.0.id %}">Leer Mas →</a>
+                            </div>
+                            {% endif %}
                 </div>
                 <!-- Nested row for non-featured blog posts-->
                 <div class="row">
@@ -107,15 +107,14 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Incendios</a></li>
-                                <li><a href="#!">Petroleras en el mar</a></li>
-                                <li><a href="#!">Ballenas en exstincion
-                                </a></li>
+                                <li><a href="/ambientalnews/1/detalle/">#ATLANTICAZO</a></li>
+                                <li><a href="/ambientalnews/2/detalle/">#INCENDIOS</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Contaminacion MDQ</a></li>
+                                <li><a href="/ambientalnews/4/detalle/">#BALLENAS</a></li>
+                                <li><a href="/ambientalnews/3/detalle/">#SALINAS</a></li>
                             </ul>
                         </div>
                     </div>
